@@ -1,0 +1,49 @@
+{
+  "name": "client-sdk-node",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "LiveKit Client SDK for server side Node.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./proto": "./dist/proto/index.js"
+  },
+  "files": [
+    "dist/",
+    "resources/liblivekit_ffi.dylib",
+    "bridge/libbridge.dylib"
+  ],
+  "types": "dist/types/",
+  "scripts": {
+    "build": "tsc",
+    "basic_room": "node --experimental-loader=extensionless dist/examples/basic_room.js"
+  },
+  "author": "Paul Vanderspek",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "axios": "^1.5.0",
+    "dotenv": "^16.3.1",
+    "extensionless": "^1.4.5",
+    "ffi-napi": "^4.0.3",
+    "google-protobuf": "^3.21.2",
+    "ref-napi": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/ffi-napi": "^4.0.7",
+    "@types/google-protobuf": "^3.15.6",
+    "@types/node": "^20.6.1",
+    "@types/ref-napi": "^3.0.7",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "eslint": "^8.49.0",
+    "eslint-config-standard-with-typescript": "^39.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-n": "^16.1.0",
+    "eslint-plugin-no-relative-import-paths": "^1.5.2",
+    "tsconfig.json": "^1.0.11",
+    "typescript": "^4.4.2"
+  },
+  "packageManager": "yarn@3.4.1",
+  "engines": {
+    "node": "20.5.0"
+  }
+}
