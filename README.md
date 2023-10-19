@@ -1,10 +1,3 @@
-<!--BEGIN_BANNER_IMAGE-->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="/.github/banner_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="/.github/banner_light.png">
-  <img style="width:100%;" alt="The LiveKit icon, the name of the repository and some sample code in the background." src="https://raw.githubusercontent.com/livekit/client-sdk-python/main/.github/banner_light.png">
-</picture>
-<!--END_BANNER_IMAGE-->
 
 # 📹🎙️ Unofficial Node Server Client SDK for LiveKit
 
@@ -16,9 +9,32 @@ This is a work in progress.
 
 Official LiveKit documentation: https://docs.livekit.io/
 
-## Installation
+## Running 
+
+Thus far this works locally on my Mac, so you should be able to get that far as well.m
+
+You need the rust client sdk. You can build this locally from the submodule or download a prebuilt.
+Prebuilt download script here: https://github.com/livekit/rust-sdks/blob/main/download_ffi.py
 
 ```shell
-yarn build
+# Build client-sdk locally, you can skip this if you download a prebuilt. 
+git submodule update --init
+cd client-sdk-rust
+cargo build
+```
+Setup the LIVEKIT_LIB_PATH in .env to point to the livekit_ffi.dylib or equivalent for your architecture.
+
+There's a small C library that enables changing native pointer types in a way that keeps node happy. 
+For now the code assumes this is in the bridge/ directory.
+```shell
+pushd bridge
+make
+popd
 ```
 
+Run the basic room example.
+```
+yarn install
+yarn run basic_room
+
+``` 
